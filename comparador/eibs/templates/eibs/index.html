@@ -1,9 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
+    <link rel="stylesheet" href="{%static 'css/styles.css' %}">
     {% load bootstrap5 %}
     {% bootstrap_css %}
     {% bootstrap_javascript %}
@@ -11,10 +12,12 @@
 </head>
 <body>
     <div class="container">
-        <!-- <img src="{% static 'img/beca_logo.png' %}" alt="Banco Exterior Logo" class="logo"> -->
-        <h1>Comparador de Archivos</h1>
-        <h4>Presiona para ingresar</h4>
-        <a href="{% url 'comparar' %}" class="btn btn-primary">Acceder</a>
+        <div class="row justify-content-center pt-3">
+            <img src="{% static 'img/beca_logo.png' %}" alt="Banco Exterior Logo" class="logo">
+            <h1 class="text-center">Comparador de Archivos</h1>
+            <h4 class="text-center">Presiona para ingresar</h4>
+            <a class="btn btn-primary btn-access" href="{% url 'comparar' %}" role="button">Acceder</a>
+        </div>
     </div>
 </body>
 </html>
