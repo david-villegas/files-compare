@@ -62,14 +62,14 @@ def comparar_opciones(request):
         df2_filtered = df2[['BTHF03', 'WSSSID', 'WSSIDE']]
 
         # Unir las tres columnas en un solo identificador único para comparar
-        df1_filtered['combo'] = df1_filtered['BTHF03'].astype(str) + '-' + df1_filtered['WSSSID'].astype(str) + '-' + df1_filtered['WSSIDE'].astype(str)
-        df2_filtered['combo'] = df2_filtered['BTHF03'].astype(str) + '-' + df2_filtered['WSSSID'].astype(str) + '-' + df2_filtered['WSSIDE'].astype(str)
+        df1_filtered['identificador'] = df1_filtered['BTHF03'].astype(str) + '-' + df1_filtered['WSSSID'].astype(str) + '-' + df1_filtered['WSSIDE'].astype(str)
+        df2_filtered['identificador'] = df2_filtered['BTHF03'].astype(str) + '-' + df2_filtered['WSSSID'].astype(str) + '-' + df2_filtered['WSSIDE'].astype(str)
 
         # Comparar las opciones que están en el archivo1 pero no en archivo2 (excluidas)
-        excluidas = df1_filtered[~df1_filtered['combo'].isin(df2_filtered['combo'])]
+        excluidas = df1_filtered[~df1_filtered['identificador'].isin(df2_filtered['identificador'])]
 
         # Comparar las opciones que están en el archivo2 pero no en archivo1 (incluidas)
-        incluidas = df2_filtered[~df2_filtered['combo'].isin(df1_filtered['combo'])]
+        incluidas = df2_filtered[~df2_filtered['identificador'].isin(df1_filtered['identificador'])]
 
         # Almacenar el archivo en el sistema de archivos
         output_file = 'resultados_comparacion.xlsx'
