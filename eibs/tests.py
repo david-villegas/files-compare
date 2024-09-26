@@ -1,7 +1,3 @@
-'''
-Programaen que permite comparar 2 archivos de excel 3 campos BTHF03 (Perfil), WSSSID (Menus) y WSSIDE (opciones), cuales opciones de un menú fueron incluidas o eliminadas en un perfil.
-'''
-
 import pandas as pd
 
 # Cargar los archivos de Excel
